@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="country"
+            type="com.udacity.capstoneproject.Country" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/dimen_10_dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/mainTextStyles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/country_name_title"
+                        android:text="@string/country_name_title"
+                        android:textColor="@color/default_text_color" />
+
+                    <TextView
+                        style="@style/mainTextStylesTwo"
+                        android:id="@+id/close_approach_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:contentDescription="@{country.countryName}"
+                        android:text="@{country.countryName}"
+                        android:textColor="@color/default_text_color"
+                        tools:text="Argentina" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/mainTextStyles"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/country_code"
+                            android:contentDescription="@string/country_code"
+                            android:textColor="@color/default_text_color" />
+
+                        <TextView
+                            style="@style/mainTextStylesTwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/default_text_color"
+                            android:text="@{country.countryCode}"
+                            tools:text="AG" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/mainTextStyles"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/new_confirmed_title"
+                            android:contentDescription="@string/new_confirmed_title"
+                            android:textColor="@color/default_text_color" />
+
+                        <TextView
+                            style="@style/mainTextStylesTwo"
+                            android:id="@+id/absolute_magnitude"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/default_text_color"
+                            android:text="@{country.newConfirmed}"
+                            tools:text="10000" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/mainTextStyles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/total_confirmed_title"
+                    android:text="@string/total_confirmed_title"
+                    android:textColor="@color/default_text_color" />
+
+                <TextView
+                    style="@style/mainTextStylesTwo"
+                    android:id="@+id/estimated_diameter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/default_text_color"
+                    android:text="@{country.totalConfirmed}"
+                    tools:text="10000" />
+
+                <TextView
+                    style="@style/mainTextStyles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/new_deaths_title"
+                    android:text="@string/new_deaths_title"
+                    android:textColor="@color/default_text_color" />
+
+                <TextView
+                    style="@style/mainTextStylesTwo"
+                    android:id="@+id/relative_velocity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/default_text_color"
+                    android:text="@{country.newDeaths}"
+                    tools:text="10000" />
+
+                <TextView
+                    style="@style/mainTextStyles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/total_deaths_title"
+                    android:text="@string/total_deaths_title"
+                    android:textColor="@color/default_text_color" />
+
+                <TextView
+                    style="@style/mainTextStylesTwo"
+                    android:id="@+id/distance_from_earth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/default_text_color"
+                    android:text="@{country.totalDeaths}"
+                    tools:text="10000" />
+
+<!--                -->
+
+                <TextView
+                    style="@style/mainTextStyles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/newly_recovered_title"
+                    android:text="@string/newly_recovered_title"
+                    android:textColor="@color/default_text_color" />
+
+                <TextView
+                    style="@style/mainTextStylesTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/default_text_color"
+                    android:text="@{country.newRecovered}"
+                    tools:text="10000" />
+
+                <TextView
+                    style="@style/mainTextStyles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/total_recovered_title"
+                    android:text="@string/total_recovered_title"
+                    android:textColor="@color/default_text_color" />
+
+                <TextView
+                    style="@style/mainTextStylesTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/default_text_color"
+                    android:text="@{country.totalRecovered}"
+                    tools:text="10000" />
+
+            </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

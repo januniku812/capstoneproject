@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Covid-19 Updates</string>
+    <string name="error_getting_data">Error getting data</string>
+    <string name="potentially_hazardous_asteroid">Potentially Hazardous Asteroid</string>
+    <string name="safe_asteroid">Safe Asteroid</string>
+    <string name="new_deaths_place_holder_text">New Deaths: 10000</string>
+    <string name="total_deaths_place_holder_text">Total Deaths: 10000</string>
+    <string name="newly_recovered_placeholder_text">Newly Recovered: 10000</string>
+    <string name="total_recovered_place_holder_text">Total Recovered: 10000</string>
+    <string name="total_recovered_placeholder_text">Total Recovered: 10000</string>
+    <string name="country_name_placeholder_text">Country Name</string>
+    <string name="new_deaths_format">New Deaths: %f</string>
+    <string name="total_deaths_format">Total Deaths: %f</string>
+    <string name="newly_recovered_format">Newly Recovered: %f</string>
+    <string name="total_recovered_format">Total Recovered: %f</string>
+    <string name="newly_confirmed_cases_placeholder_text">Newly Confirmed: 10000</string>
+    <string name="total_confirmed_cases_placeholder_text">Total Confirmed: 10000</string>
+    <string name="newly_confirmed_format">Newly Confirmed: %f</string>
+    <string name="total_confirmed_format">Total Confirmed: %f</string>
+    <string name="country_name_title">Country Name</string>
+    <string name="new_confirmed_title">Newly Confirmed</string>
+    <string name="total_confirmed_title">Total Confirmed</string>
+    <string name="new_deaths_title">New Deaths</string>
+    <string name="total_deaths_title">Total Deaths</string>
+    <string name="newly_recovered_title">Newly Recovered</string>
+    <string name="total_recovered_title">Total Recovered</string>
+    <string name="country_code">Country Code</string>
+    <string name="global_statistics">Global Statistics</string>
+    <string name="could_not_retrieve_global_statistics">Could Not Retrieve Global Statistics</string>
+    <string name="covid_data_updated">Covid data for countries and globally has been updated</string>
+    <string name="see_latest_updates">See latest updates &amp; data></string>
+    <string name="the_data_displayed_below_is_updated_every_15_minutes">The data displayed below is updated every 15 minutes</string>
+    <string name="help_fragment_info">All the data we are displaying and providing to you is coming from the Gramzivi Covid-19 data API. It is updated every 15 minutes with worldwide statistics from several reliable sources like ohns Hopkins CSSE, CDC, WHO and more. With 6 servers around the world it has a 100% service level and has very fast updates from all over the globe.</string>
+    <string name="see_more">See more <a href="https://rapidapi.com/Gramzivi/api/covid-19-data">here</a></string>
+    <string name="notification_channel">Notification Channel</string>
+    <string name="notification_channnel_description">Lets the user know that the data has been updated</string>
+</resources>

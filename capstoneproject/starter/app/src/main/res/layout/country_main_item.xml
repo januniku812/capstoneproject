@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="country"
+            type="com.udacity.capstoneproject.Country" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        app:cardElevation="10dp"
+        app:cardCornerRadius="15dp"
+        android:id="@+id/card_view"
+        app:cardBackgroundColor="@color/white"
+        style="@style/countryMainItemStyles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/countryNameMainItemTextStyles"
+                android:id="@+id/country_name"
+                tools:text="@string/country_name_placeholder_text"
+                android:text="@{country.countryName}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/deaths"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/country_name"
+                app:layout_constraintHorizontal_chainStyle="spread">
+                <!--                new deaths text view -->
+                <TextView
+                    android:id="@+id/new_deaths"
+                    style="@style/countryMainItemNewDeathsTextStyles"
+                    tools:text="@string/new_deaths_place_holder_text"
+                    app:newDeathsText="@{country}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/recovered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/deaths"
+                app:layout_constraintHorizontal_chainStyle="spread">
+                <!--                new recovered text styles -->
+                <TextView
+                    android:id="@+id/new_recovered"
+                    style="@style/countryMainItemNewRecoveredTextStyles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/newly_recovered_placeholder_text"
+                    app:newlyRecoveredText="@{country}"
+                    app:layout_constraintEnd_toStartOf="@+id/deaths"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deaths" />
+               </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/confirmed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recovered" >
+                <!--                new confirmed text styles -->
+                <TextView
+                    android:id="@+id/new_confirmed"
+                    style="@style/countryMainItemNewConfirmedTextStyles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/newly_confirmed_cases_placeholder_text"
+                    app:newlyConfirmedText="@{country}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recovered" />
+               </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

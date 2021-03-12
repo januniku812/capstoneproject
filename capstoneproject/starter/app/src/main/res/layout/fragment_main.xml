@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.udacity.capstoneproject.main.MainViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/note_and_help_header_text_view"
+            android:background="@android:color/holo_blue_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="@dimen/dimen_10_dp"
+            android:text="@string/the_data_displayed_below_is_updated_every_15_minutes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/global_stat_cl"/>
+
+        <ImageView
+            android:layout_width="@dimen/dimen_18_dp"
+            android:layout_height="@dimen/dimen_18_dp"
+            android:layout_margin="@dimen/dimen_16_dp"
+            android:src="@drawable/ic_help_circle"
+            app:layout_anchorGravity="top|right|end"
+            app:layout_constraintEnd_toEndOf="@id/note_and_help_header_text_view"
+            app:layout_constraintTop_toTopOf="@id/note_and_help_header_text_view"
+            app:layout_constraintBottom_toBottomOf="@id/note_and_help_header_text_view"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/global_stat_cl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/note_and_help_header_text_view">
+
+            <FrameLayout
+                android:id="@+id/global_stat_frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/could_not_retrieve_global_statistics_text_view"
+                    android:text="@string/could_not_retrieve_global_statistics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+
+                <ProgressBar
+                    android:id="@+id/picture_status_loading_wheel"
+                    android:layout_width="@dimen/dimen_16_dp"
+                    android:layout_height="@dimen/dimen_16_dp"
+                    android:indeterminate="true"
+                    android:layout_gravity="center"
+                    android:visibility="visible"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/global_statistics_cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/global_statistics_cl_height">
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/deaths"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintHorizontal_chainStyle="spread">
+                        <!--                new deaths text view -->
+                        <TextView
+                            android:id="@+id/new_deaths"
+                            android:textSize="18sp"
+                            style="@style/countryMainItemNewDeathsTextStyles"
+                            tools:text="@string/new_deaths_place_holder_text"
+                            app:globalStatisticsNewDeathsText="@{viewModel.globalStatistics}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="spread" />
+                        <!--                total deaths text view -->
+                        <TextView
+                            android:id="@+id/total_deaths"
+                            android:textSize="18sp"
+                            style="@style/countryMainItemTotalDeathsTextStyles"
+                            tools:text="@string/total_deaths_place_holder_text"
+                            app:totalDeathsText="@{viewModel.globalStatistics}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="@id/recovered"
+                            app:layout_constraintStart_toStartOf="@id/total_recovered"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/recovered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/deaths"
+                        app:layout_constraintHorizontal_chainStyle="spread">
+                        <!--                new recovered text styles -->
+                        <TextView
+                            android:id="@+id/new_recovered"
+                            android:textSize="18sp"
+                            style="@style/countryMainItemNewRecoveredTextStyles"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="@string/newly_recovered_placeholder_text"
+                            app:globalStatisticsNewlyRecoveredText="@{viewModel.globalStatistics}"
+                            app:layout_constraintEnd_toStartOf="@+id/deaths"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/deaths" />
+                        <!--                total recovered text styles -->
+                        <TextView
+                            android:id="@+id/total_recovered"
+                            style="@style/countryMainItemTotalRecoveredTextStyles"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            app:layout_constraintEnd_toEndOf="@+id/deaths"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/deaths"
+                            app:totalRecoveredText="@{viewModel.globalStatistics}"
+                            tools:text="@string/total_recovered_placeholder_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/confirmed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/recovered" >
+                        <!--                new confirmed text styles -->
+                        <TextView
+                            android:id="@+id/new_confirmed"
+                            android:textSize="18sp"
+                            style="@style/countryMainItemNewConfirmedTextStyles"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="@string/newly_confirmed_cases_placeholder_text"
+                            app:globalStatisticsNewlyConfirmedText="@{viewModel.globalStatistics}"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/recovered" />
+                        <!--                total confirmed text styles -->
+                        <TextView
+                            android:id="@+id/total_confirmed"
+                            style="@style/countryMainItemTotalConfirmedTextStyles"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"                            tools:text="@string/total_confirmed_cases_placeholder_text"
+                            app:totalConfirmedText="@{viewModel.globalStatistics}"
+                            app:layout_constraintEnd_toEndOf="@+id/deaths"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/deaths" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/image_of_the_day_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_16_dp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_gravity="bottom"
+                    android:contentDescription="@string/global_statistics"
+                    android:background="@color/app_background"
+                    android:text="@string/global_statistics" />
+            </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/country_recycler"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/country_main_item"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@id/global_stat_cl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/error_getting_data_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:text="@string/error_getting_data"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ProgressBar
+            android:id="@+id/status_loading_wheel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
