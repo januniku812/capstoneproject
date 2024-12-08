@@ -1,6 +1,4 @@
-# Project Title
-
-Asteroid Radar
+# Asteroid Radar Udacity Kotlin Android Development Nanodegree
 
 ## Getting Started
 
